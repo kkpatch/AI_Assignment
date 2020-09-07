@@ -25,7 +25,7 @@ for i in range(0,10):
 def DFS(row,column,string):
     print("NorthEast:\n", end="")
     DFSsearch(row,column, string, 'NorthEast')
-    print("East\n",end="")
+    print("East:\n",end="")
     DFSsearch(row,column,string,'East')
     print("SouthEast:\n", end="")
     DFSsearch(row,column,string,'SouthEast')
@@ -38,6 +38,7 @@ def DFSsearch(row,column,string,dir):
             #print(table[PosX][PosY], end=" ")
             string = string + table[row][column]
             print(string)
+
             if string in words:
                 global position
                 if(dir == 'NorthEast'):
@@ -83,7 +84,7 @@ def IDDFSSearch(row,column,string,dir,tmp_round,last_round):
                 # print(table[row][column],(row,column), end=" ")
                 string = string + table[row][column]    #Stack
                 print(string)
-                #time.sleep(0.5)
+                time.sleep(0.5)
                 # print(tmp_round,last_round,end = " ")
                 # print(row,column,end = "\n")
                 if string in words:                     #หาว่า string(stack)ที่ได้จากการ Search ตรงกับคำที่อยู่ใน list หรือไม่
@@ -106,11 +107,11 @@ def IDDFSSearch(row,column,string,dir,tmp_round,last_round):
                 if (dir == 'SouthEast'):
                     IDDFSSearch(row + 1, column+1, string, dir,tmp_round+1,last_round)
 
-for row in range(0,10):
-    for column in range(0,10):
-        print('Root:',row,column)
-        DFS(row,column,"")
-print(position)
+# for row in range(0,10):
+#     for column in range(0,10):
+#         print('Root:',row,column)
+#         DFS(row,column,"")
+# print(position)
 for row in range(0,10):
     for column in range(0,10):
         print('___Root:',row,column)

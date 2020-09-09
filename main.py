@@ -60,16 +60,17 @@ def DFSsearch(row,column,string,dir):
 
 def IDDFS(row,column,string,tmp_round,last_round):
     print(row, column, tmp_round, last_round)
-    print("NorthEast: ")
-    IDDFSSearch(row, column, string, 'NorthEast', tmp_round, last_round)
-    print("East: ")
-    IDDFSSearch(row, column, string, 'East',tmp_round,last_round)
-    print("SouthEast: ")
-    IDDFSSearch(row, column, string, 'SouthEast', tmp_round, last_round)
-    print("South: ")
-    IDDFSSearch(row, column, string, 'South', tmp_round, last_round)
-    print('----------')
-    tmp = row - column
+    if(last_round > 0):
+        print("NorthEast: ")
+        IDDFSSearch(row, column, string, 'NorthEast', tmp_round, last_round)
+        print("East: ")
+        IDDFSSearch(row, column, string, 'East',tmp_round,last_round)
+        print("SouthEast: ")
+        IDDFSSearch(row, column, string, 'SouthEast', tmp_round, last_round)
+        print("South: ")
+        IDDFSSearch(row, column, string, 'South', tmp_round, last_round)
+        print('----------')
+    #tmp = row - column
     #if (last_round < 9):
     if(last_round<9-min(row,column)):                           #ใช้ในการลดการทำงานซ้ำโดยไม่จำเป็น เช่น (7,2) จะวนซ้ำ 9-2 = 7 ครั้ง
         IDDFS(row, column, string, tmp_round, last_round + 1)
@@ -118,4 +119,3 @@ for row in range(0,10):
         IDDFS(row,column,"",0,0)
         print('-------------------------------------------')
 print(position)
-

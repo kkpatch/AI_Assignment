@@ -55,7 +55,7 @@ class DFS():
                 print(self.string)
                 self.redraw()
                 if self.string in words:
-                    print("------------------------------------------------------")
+                    
                     self.path.append(self.string)
                 if (self.dir == 0):
                     #search(PosX-1, PosY+1, string, dir, position)
